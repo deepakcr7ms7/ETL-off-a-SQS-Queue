@@ -56,3 +56,42 @@ apt install postgresql-client
 ```bash
 echo -n "<sample_base64_encrypted_string>" | base64 --decrypt
 ```
+
+
+## :eyes: Assumptions: 
+
+1. The SQS Queue contains JSON data with a consistent structure, containing fields like `user_id`, `device_type`, `ip`, `device_id`, `locale`, `app_version`, and `create_date`.
+2. The PII data (IP and device_id) can be masked using a one-way hashing algorithm (e.g., SHA-256) to preserve uniqueness while ensuring that the original data cannot be easily recovered.
+3. The PostgreSQL database is set up with the correct table schema to store the processed records.
+4. The provided Docker Compose file sets up the local development environment, and no additional configuration is required for local testing.
+5. The ETL pipeline is designed to be executed as a standalone script and does not include advanced features like scheduling or error handling.
+
+## :runner:Next Steps: 
+
+1. Add error handling and retries for reading from SQS and writing to PostgreSQL.
+2. Implement logging and monitoring to track the application's performance and detect issues.
+3. Develop a scheduling mechanism or run the ETL pipeline as a service to process new data periodically.
+4. Optimize the data processing, for example, by processing messages in batches to improve performance.
+5. Implement more comprehensive tests, including integration and end-to-end tests.
+
+### :raising_hand: Deployment in Production: 
+
+To deploy this application in production, we could use a managed container orchestration service like AWS Fargate or Kubernetes -- it would allow us to easily manage, scale, and monitor the application in a production environment.:grin:
+
+### :speech_balloon: Production-Ready Components:
+
+In order to make this application production-ready, we could add the following components:
+
+1. Centralized logging with services like AWS CloudWatch or ELK Stack (Elasticsearch, Logstash, Kibana) for easy log management and analysis.
+2. Monitoring and alerting with tools like Grafana, Prometheus, or Datadog to track the performance and health of the application.
+3. CI/CD pipeline for automated building, testing, and deployment of the application.
+
+### :muscle: Scaling with a Growing Dataset:
+
+Finally, to scale this application with a growing dataset, we could take the following approaches depending on our dev environment:
+
+1. Implement ---> horizontal scaling by adding more instances of the ETL application, allowing it to process data concurrently.
+2. Optimize database performance with proper indexing, partitioning, and sharding strategies.
+3. Use a message broker like Apache Kafka or Amazon Kinesis to handle high throughput and enable data streaming.
+
+
