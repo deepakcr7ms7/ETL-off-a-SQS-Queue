@@ -112,7 +112,7 @@ The data in the SQS Queue is in a consistent format.
 
 The SQS Queue can handle the volume of data.
 
-The ETL process can handle duplicates, missing data nad delayed messages.
+The ETL process can handle duplicates, missing data and delayed messages.
 
 The ETL process can handle errors and failures
 
