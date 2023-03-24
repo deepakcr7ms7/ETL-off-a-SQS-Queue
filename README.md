@@ -60,7 +60,7 @@ echo -n "<sample_base64_encrypted_string>" | base64 --decrypt
 
 #
 
-### Quesstions:
+### Questions:
 
 ### 1)Deployment in Production: 
 
@@ -70,7 +70,7 @@ Then we can deploy the Docker image to the production environment. This can be d
 
 ### 2) Production-Ready Components:
 
-In order to make this application production-ready, we could add the following components:
+I containerised the application Docker.So that part is production ready. But, In order to make this application production-ready, we need to add the following components:
 
 Centralized logging: Using tools like ELK Stack, Splunk, or AWS CloudWatch to collect and analyze logs from different parts of the application can help identify and debug issues quickly.
 
@@ -79,7 +79,6 @@ Monitoring and alerting: Tools like Prometheus, Grafana, or New Relic can provid
 CI/CD pipeline: Automating the building, testing, and deployment of the application using tools like Jenkins, Travis CI, or GitLab CI/CD can help reduce manual errors and improve deployment speed.
 
 Scalability: Implementing horizontal scaling using load balancers like HAProxy, Nginx, or Amazon ELB can help ensure high availability and handle spikes in traffic.
-
 
 Security: Implementing security measures like encryption, role-based access control, and web application firewalls can help protect against threats like data breaches and DDoS attacks.
 
@@ -93,7 +92,7 @@ Documentation and training: Providing documentation and training for support and
 
 ### 3)Scaling with a Growing Dataset:
 
-Finally, to scale this application with a growing dataset, we could take the following approaches depending on our dev environment:
+To scale this application with a growing dataset, we could take the following approaches depending on our dev environment:
 
 Increase the number of ETL worker instances: As the size of the dataset grows, you may need to increase the number of worker instances that are processing messages from the SQS Queue. This can be achieved by either launching additional EC2 instances or scaling out the containers running the ETL workers in a containerized environment.
 
@@ -105,7 +104,11 @@ Optimize the ETL process: The ETL process should be optimized to handle large am
 
 Use a Data Pipeline service: Use a managed data pipeline service like AWS Glue or Azure Data Factory to automate and manage the ETL process. These services can automatically scale and optimize the processing of data based on the size of the queue.
 
-### 4) assumptions I made :
+### 4) How can PII be recovered later on?
+
+Recovering masked PII is generally not possible, as the purpose of masking is to protect the sensitive data from unauthorized access or exposure. However, there are a few scenarios where some or all of the original PII may be recoverable, typically through key-based or pattern-based attacks, or through side-channel attacks.
+
+### 5) assumptions I made :
 
 The data in the SQS Queue is in a consistent format.
 
