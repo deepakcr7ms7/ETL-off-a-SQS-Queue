@@ -1,8 +1,6 @@
 # Fetch Rewards #
 ## Data Engineering Take Home: ETL off a SQS Qeueue ##
 
-This project is the solution for the Data Engineering assignment given in the below link:
-https://bitbucket.org/fetchrewards/data-engineering-take-home/src/master/
 
 ## To run the code
 1. Clone this repo.
