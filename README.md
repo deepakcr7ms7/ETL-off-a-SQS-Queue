@@ -70,7 +70,7 @@ Then we can deploy the Docker image to the production environment. This can be d
 
 ### 2) Production-Ready Components:
 
-I containerised the application Docker.So that part is production ready. But, In order to make this application production-ready, we need to add the following components:
+I containerised the application in Docker.So that part is production ready. But, In order to make this application production-ready, we need to add the following components:
 
 Centralized logging: Using tools like ELK Stack, Splunk, or AWS CloudWatch to collect and analyze logs from different parts of the application can help identify and debug issues quickly.
 
